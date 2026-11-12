@@ -1,106 +1,106 @@
 # ArchFlow
 
-> **AI-powered system architecture diagramming tool for developers.**  
-> Design, visualize, and share your system architecture on an infinite canvas — with diagram-as-code, AI generation, and real-time collaboration.
+> **Ferramenta de diagramas de arquitetura de sistemas com IA para desenvolvedores.**  
+> Projete, visualize e compartilhe a arquitetura do seu sistema em uma área de trabalho infinita — com diagramas em código, geração por IA e colaboração em tempo real.
 
 ---
 
-## Table of Contents
+## Sumário
 
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Environment Variables](#environment-variables)
-- [Development Phases](#development-phases)
-- [Redux Store](#redux-store)
-- [Node Types](#node-types)
-- [Keyboard Shortcuts](#keyboard-shortcuts)
-- [API Routes](#api-routes)
-- [Database Schema](#database-schema)
+- [Visão geral](#visão-geral)
+- [Recursos](#recursos)
+- [Stack tecnológica](#stack-tecnológica)
+- [Estrutura do projeto](#estrutura-do-projeto)
+- [Primeiros passos](#primeiros-passos)
+- [Variáveis de ambiente](#variáveis-de-ambiente)
+- [Fases de desenvolvimento](#fases-de-desenvolvimento)
+- [Store do Redux](#store-do-redux)
+- [Tipos de nó](#tipos-de-nó)
+- [Atalhos do teclado](#atalhos-do-teclado)
+- [Rotas da API](#rotas-da-api)
+- [Esquema do banco de dados](#esquema-do-banco-de-dados)
 - [Scripts](#scripts)
-- [Contributing](#contributing)
+- [Contribuindo](#contribuindo)
 
 ---
 
-## Overview
+## Visão geral
 
-ArchFlow is an open-source, developer-focused architecture diagramming tool inspired by [Eraser.io](https://www.eraser.io). It lets developers drag, connect, and label system components on an infinite canvas — and supports diagram-as-code via Mermaid.js, AI-powered diagram generation, and shareable read-only links.
+O ArchFlow é uma ferramenta de diagramas de arquitetura open source, focada em desenvolvedores e inspirada no [Eraser.io](https://www.eraser.io). Ele permite que desenvolvedores arrastem, conectem e rotulem componentes do sistema em uma tela infinita — além de suportar diagramas em código via Mermaid.js, geração de diagramas com IA e links compartilháveis apenas para leitura.
 
 ```
-Prompt → AI → Canvas → Export / Share
-Code   → Mermaid → Canvas (two-way sync)
-Drag   → Drop → Connect → Design
+Prompt → IA → Canvas → Exportar / Compartilhar
+Código → Mermaid → Canvas (sincronização bidirecional)
+Arrastar → Soltar → Conectar → Projetar
 ```
 
 ---
 
-## Features
+## Recursos
 
-### Phase 1 — Canvas MVP
-- ✅ Infinite zoomable/pannable canvas (React Flow)
-- ✅ 7 draggable node types from sidebar palette
-- ✅ Custom labeled edges (bezier / straight / smoothstep)
-- ✅ Node properties panel (label, color, description)
-- ✅ Undo / Redo (Redux past/future stack)
-- ✅ PNG export
-- ✅ Auto-save to localStorage
-- ✅ Keyboard shortcuts
+### Fase 1 — MVP do canvas
+- ✅ Canvas infinito com zoom e pan (React Flow)
+- ✅ 7 tipos de nós arrastáveis na paleta lateral
+- ✅ Arestas personalizadas com rótulos (bezier / straight / smoothstep)
+- ✅ Painel de propriedades do nó (rótulo, cor, descrição)
+- ✅ Desfazer / Refazer (pilha past/future do Redux)
+- ✅ Exportação em PNG
+- ✅ Auto-save no localStorage
+- ✅ Atalhos do teclado
 
-### Phase 2 — Diagram-as-Code
-- ✅ Monaco editor panel with Mermaid syntax
-- ✅ Two-way sync: canvas ↔ code
-- ✅ Live Mermaid preview
-- ✅ Toggle code panel open/close
+### Fase 2 — Diagramas em código
+- ✅ Painel do editor Monaco com sintaxe Mermaid
+- ✅ Sincronização bidirecional: canvas ↔ código
+- ✅ Visualização em tempo real do Mermaid
+- ✅ Alternar painel de código aberto/fechado
 
-### Phase 3 — Auth + Persistence
-- ✅ NextAuth.js authentication (Google + Email)
-- ✅ Save diagrams to PostgreSQL via Prisma
-- ✅ Dashboard — list, rename, delete, duplicate diagrams
-- ✅ Auto-save to DB on change (debounced)
+### Fase 3 — Autenticação + Persistência
+- ✅ Autenticação com NextAuth.js (Google + Email)
+- ✅ Salvar diagramas no PostgreSQL via Prisma
+- ✅ Dashboard — listar, renomear, excluir e duplicar diagramas
+- ✅ Auto-save no banco de dados em mudança (debounced)
 
-### Phase 4 — AI Generation
-- ✅ Prompt → diagram (Claude API)
-- ✅ AI explains selected node
-- ✅ Streaming response UI
+### Fase 4 — Geração com IA
+- ✅ Prompt → diagrama (API Claude)
+- ✅ IA explica o nó selecionado
+- ✅ Interface com resposta em streaming
 
-### Phase 5 — Sharing + Templates
-- ✅ Shareable read-only links
-- ✅ Template gallery (microservices, monolith, event-driven, CQRS)
-- ✅ Embed diagrams via iframe
+### Fase 5 — Compartilhamento + Templates
+- ✅ Links compartilháveis somente leitura
+- ✅ Galeria de templates (microserviços, monolito, orientado a eventos, CQRS)
+- ✅ Incorporar diagramas via iframe
 
 ---
 
-## Tech Stack
+## Stack tecnológica
 
-| Layer | Technology |
+| Camada | Tecnologia |
 |---|---|
 | Framework | Next.js 15 (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS |
+| Linguagem | TypeScript |
+| Estilização | Tailwind CSS |
 | Canvas | React Flow |
-| Code Editor | Monaco Editor |
-| Diagram-as-Code | Mermaid.js |
-| State Management | Redux Toolkit + React Redux |
-| Auth | NextAuth.js |
-| Database ORM | Prisma |
-| Database | PostgreSQL |
-| AI | Claude API (Anthropic) |
-| ID Generation | nanoid |
-| Package Manager | npm |
+| Editor de código | Monaco Editor |
+| Diagramas em código | Mermaid.js |
+| Gerenciamento de estado | Redux Toolkit + React Redux |
+| Autenticação | NextAuth.js |
+| ORM do banco | Prisma |
+| Banco de dados | PostgreSQL |
+| IA | Claude API (Anthropic) |
+| Geração de IDs | nanoid |
+| Gerenciador de pacotes | npm |
 
 ---
 
-## Project Structure
+## Estrutura do projeto
 
 ```
 archflow/
 ├── public/
 │   ├── icons/
-│   │   ├── nodes/                        # Node type SVG icons
-│   │   └── clouds/                       # AWS / GCP / Azure icons
-│   └── templates/                        # JSON diagram templates
+│   │   ├── nodes/                        # Ícones SVG dos tipos de nó
+│   │   └── clouds/                       # Ícones AWS / GCP / Azure
+│   └── templates/                        # Templates de diagramas em JSON
 │
 ├── prisma/
 │   ├── schema.prisma
@@ -108,74 +108,74 @@ archflow/
 │
 ├── src/
 │   ├── app/
-│   │   ├── (auth)/                       # Login / Register pages
-│   │   ├── dashboard/                    # Diagram list
-│   │   ├── editor/[diagramId]/           # Main canvas editor
-│   │   ├── shared/[shareId]/             # Read-only shared view
-│   │   └── api/                          # API routes
+│   │   ├── (auth)/                       # Páginas de login / cadastro
+│   │   ├── dashboard/                    # Lista de diagramas
+│   │   ├── editor/[diagramId]/           # Editor principal do canvas
+│   │   ├── shared/[shareId]/             # Visualização compartilhada somente leitura
+│   │   └── api/                          # Rotas da API
 │   │       ├── auth/[...nextauth]/
 │   │       ├── diagrams/[diagramId]/
 │   │       └── ai/generate | explain
 │   │
 │   ├── components/
-│   │   ├── canvas/                       # CanvasBoard, controls, edges
-│   │   ├── nodes/                        # All node type components
+│   │   ├── canvas/                       # CanvasBoard, controles, arestas
+│   │   ├── nodes/                        # Todos os componentes de tipos de nó
 │   │   ├── sidebar/                      # NodePalette, PaletteItem
-│   │   ├── toolbar/                      # Top bar, export, share, AI
-│   │   ├── properties/                   # Node/Edge property panels
-│   │   ├── code-panel/                   # Monaco + Mermaid preview
-│   │   ├── auth/                         # Login/Register forms
+│   │   ├── toolbar/                      # Barra superior, exportar, compartilhar, IA
+│   │   ├── properties/                   # Painéis de propriedades de nó/aresta
+│   │   ├── code-panel/                   # Monaco + visualização Mermaid
+│   │   ├── auth/                         # Formulários de login/cadastro
 │   │   ├── dashboard/                    # DiagramCard, DiagramGrid
-│   │   ├── ai/                           # AI prompt modal, explain panel
-│   │   ├── share/                        # Share modal, read-only banner
-│   │   ├── templates/                    # Template gallery
+│   │   ├── ai/                           # Modal de prompt IA, painel de explicação
+│   │   ├── share/                        # Modal de compartilhamento, banner somente leitura
+│   │   ├── templates/                    # Galeria de templates
 │   │   └── ui/                           # Button, Modal, Input, Tooltip...
 │   │
 │   ├── store/
 │   │   ├── index.ts                      # configureStore
 │   │   ├── hooks.ts                      # useAppDispatch, useAppSelector
 │   │   └── slices/
-│   │       ├── diagramSlice.ts           # nodes, edges, undo/redo
-│   │       ├── uiSlice.ts                # sidebar, panels, selected
-│   │       ├── authSlice.ts              # user session
-│   │       ├── diagramsSlice.ts          # dashboard list
-│   │       └── aiSlice.ts                # prompt, loading, result
+│   │       ├── diagramSlice.ts           # nós, arestas, undo/redo
+│   │       ├── uiSlice.ts                # sidebar, painéis, selecionado
+│   │       ├── authSlice.ts              # sessão do usuário
+│   │       ├── diagramsSlice.ts          # lista do dashboard
+│   │       └── aiSlice.ts                # prompt, loading, resultado
 │   │
 │   ├── hooks/
 │   │   ├── useCanvasDrop.ts              # Palette → canvas drop
-│   │   ├── useExport.ts                  # PNG export
-│   │   ├── useUndoRedo.ts                # Keyboard undo/redo
-│   │   ├── useAutoSave.ts                # localStorage / DB save
-│   │   ├── useMermaidSync.ts             # Code ↔ canvas sync
-│   │   ├── useDiagrams.ts                # Fetch diagram list
-│   │   ├── useAiGenerate.ts              # Call AI API
-│   │   └── useShareLink.ts               # Generate share URL
+│   │   ├── useExport.ts                  # Exportação PNG
+│   │   ├── useUndoRedo.ts                # Desfazer/refazer com teclado
+│   │   ├── useAutoSave.ts                # localStorage / salvar no banco
+│   │   ├── useMermaidSync.ts             # Sincronização código ↔ canvas
+│   │   ├── useDiagrams.ts                # Buscar lista de diagramas
+│   │   ├── useAiGenerate.ts              # Chamada à API de IA
+│   │   └── useShareLink.ts               # Gerar URL compartilhável
 │   │
 │   ├── lib/
 │   │   ├── reactflow/                    # nodeTypes, edgeTypes, viewport
 │   │   ├── mermaid/                      # mermaidToFlow, flowToMermaid
 │   │   ├── ai/                           # promptBuilder, responseParser
 │   │   ├── db/                           # Prisma client singleton
-│   │   └── auth/                         # NextAuth options
+│   │   └── auth/                         # Opções do NextAuth
 │   │
 │   ├── utils/
-│   │   ├── nodeFactory.ts                # Create RF node by type
-│   │   ├── edgeFactory.ts                # Create RF edge with defaults
-│   │   ├── generateId.ts                 # nanoid wrapper
-│   │   ├── downloadFile.ts               # Trigger browser download
-│   │   └── cn.ts                         # Tailwind clsx helper
+│   │   ├── nodeFactory.ts                # Criar nó RF por tipo
+│   │   ├── edgeFactory.ts                # Criar aresta RF com valores padrão
+│   │   ├── generateId.ts                 # wrapper do nanoid
+│   │   ├── downloadFile.ts               # Dispara download no navegador
+│   │   └── cn.ts                         # Helper Tailwind clsx
 │   │
 │   ├── types/
 │   │   ├── diagram.ts                    # Node, Edge, NodeType
 │   │   ├── auth.ts                       # User, Session
-│   │   ├── api.ts                        # API request/response
-│   │   └── ai.ts                         # AI prompt/response
+│   │   ├── api.ts                        # Requisição/resposta da API
+│   │   └── ai.ts                         # Prompt/resposta da IA
 │   │
 │   └── constants/
-│       ├── nodeDefaults.ts               # Default label/color per type
-│       ├── edgeDefaults.ts               # Default edge style
-│       ├── paletteGroups.ts              # Sidebar grouping config
-│       └── shortcuts.ts                  # Keyboard shortcut map
+│       ├── nodeDefaults.ts               # Rótulo/cor padrão por tipo
+│       ├── edgeDefaults.ts               # Estilo padrão da aresta
+│       ├── paletteGroups.ts              # Configuração de agrupamento da sidebar
+│       └── shortcuts.ts                  # Mapa de atalhos do teclado
 │
 ├── .env.local
 ├── .env.example
@@ -187,46 +187,46 @@ archflow/
 
 ---
 
-## Getting Started
+## Primeiros passos
 
-### Prerequisites
+### Pré-requisitos
 
 - Node.js 18+
-- PostgreSQL database
+- Banco PostgreSQL
 - npm
 
-### Installation
+### Instalação
 
 ```bash
-# 1. Clone the repository
+# 1. Clone o repositório
 git clone https://github.com/yashdark01/archflow.git
 cd archflow
 
-# 2. Install dependencies
+# 2. Instale as dependências
 npm install reactflow @monaco-editor/react mermaid @reduxjs/toolkit react-redux
 
-# 3. Install dev/utility packages
+# 3. Instale os pacotes de utilidades e desenvolvimento
 npm install nanoid clsx tailwind-merge
 
-# 4. Install auth + db packages (Phase 3)
+# 4. Instale os pacotes de autenticação e banco (Fase 3)
 npm install next-auth @prisma/client prisma
 
-# 5. Copy environment variables
+# 5. Copie as variáveis de ambiente
 cp .env.example .env.local
 
-# 6. Setup database (Phase 3)
+# 6. Configure o banco (Fase 3)
 npx prisma generate
 npx prisma migrate dev --name init
 
-# 7. Run development server
+# 7. Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Abra [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## Environment Variables
+## Variáveis de ambiente
 
 ```env
 # .env.example
@@ -235,70 +235,70 @@ Open [http://localhost:3000](http://localhost:3000)
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your_secret_here
 
-# Database (Phase 3)
+# Banco de dados (Fase 3)
 DATABASE_URL=postgresql://user:password@localhost:5432/archflow
 
-# Auth Providers (Phase 3)
+# Provedores de autenticação (Fase 3)
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 
-# AI (Phase 4)
+# IA (Fase 4)
 ANTHROPIC_API_KEY=your_anthropic_api_key
 ```
 
 ---
 
-## Development Phases
+## Fases de desenvolvimento
 
-### Phase 1 — Canvas MVP *(Weeks 1–3)*
-Core canvas with drag-drop nodes, connections, properties panel, undo/redo, PNG export, and localStorage auto-save.
+### Fase 1 — Canvas MVP *(Semanas 1–3)*
+Canvas principal com nós arrastáveis, conexões, painel de propriedades, desfazer/refazer, exportação em PNG e auto-save no localStorage.
 
 ```bash
-# Only needs base install
+# Só precisa da instalação base
 npm run dev
 ```
 
-### Phase 2 — Diagram-as-Code *(Weeks 4–5)*
-Monaco editor with Mermaid.js. Two-way sync between code and canvas.
+### Fase 2 — Diagramas em código *(Semanas 4–5)*
+Editor Monaco com Mermaid.js. Sincronização bidirecional entre código e canvas.
 
 ```bash
 npm install mermaid @monaco-editor/react
 ```
 
-### Phase 3 — Auth + Persistence *(Week 6)*
-NextAuth login, PostgreSQL via Prisma, diagram dashboard.
+### Fase 3 — Autenticação + Persistência *(Semana 6)*
+Login com NextAuth, PostgreSQL via Prisma e dashboard de diagramas.
 
 ```bash
 npm install next-auth @prisma/client prisma
 npx prisma migrate dev --name init
 ```
 
-### Phase 4 — AI Generation *(Week 7)*
-Claude API integration. Prompt → diagram, node explanation.
+### Fase 4 — Geração com IA *(Semana 7)*
+Integração com a API Claude. Prompt → diagrama, explicação do nó.
 
 ```bash
-# Add ANTHROPIC_API_KEY to .env.local
+# Adicione ANTHROPIC_API_KEY ao .env.local
 ```
 
-### Phase 5 — Share + Templates *(Week 8)*
-Shareable read-only links, template gallery, iframe embed.
+### Fase 5 — Compartilhamento + Templates *(Semana 8)*
+Links somente leitura, galeria de templates e incorporação via iframe.
 
 ---
 
-## Redux Store
+## Store do Redux
 
-### State Shape
+### Estrutura do estado
 
 ```ts
-// diagramSlice — canvas state
+// diagramSlice — estado do canvas
 {
   nodes: Node[],
   edges: Edge[],
-  past:   Array<{ nodes: Node[], edges: Edge[] }>,  // undo stack
-  future: Array<{ nodes: Node[], edges: Edge[] }>,  // redo stack
+  past:   Array<{ nodes: Node[], edges: Edge[] }>,  // pilha de undo
+  future: Array<{ nodes: Node[], edges: Edge[] }>,  // pilha de redo
 }
 
-// uiSlice — UI state
+// uiSlice — estado da interface
 {
   selectedNodeId:      string | null,
   selectedEdgeId:      string | null,
@@ -308,20 +308,20 @@ Shareable read-only links, template gallery, iframe embed.
   activeEdgeType:      'bezier' | 'straight' | 'smoothstep',
 }
 
-// authSlice — user session (Phase 3)
+// authSlice — sessão do usuário (Fase 3)
 {
   user:   { id, name, email, image } | null,
   status: 'idle' | 'loading' | 'authenticated' | 'unauthenticated',
 }
 
-// diagramsSlice — dashboard list (Phase 3)
+// diagramsSlice — lista do dashboard (Fase 3)
 {
   diagrams: Diagram[],
   status:   'idle' | 'loading' | 'succeeded' | 'failed',
   error:    string | null,
 }
 
-// aiSlice — AI state (Phase 4)
+// aiSlice — estado da IA (Fase 4)
 {
   prompt:  string,
   status:  'idle' | 'loading' | 'succeeded' | 'failed',
@@ -330,7 +330,7 @@ Shareable read-only links, template gallery, iframe embed.
 }
 ```
 
-### Key Actions
+### Ações principais
 
 ```ts
 // diagramSlice
@@ -355,77 +355,77 @@ uiSlice.actions.setActiveEdgeType(type)
 
 ---
 
-## Node Types
+## Tipos de nó
 
-| Type | Description | Shape |
+| Tipo | Descrição | Forma |
 |---|---|---|
-| `service` | Generic microservice / application | Rectangle |
-| `database` | SQL / NoSQL database | Cylinder |
-| `queue` | Message queue / event bus | Rectangle + arrows |
-| `cache` | Redis / Memcached | Rectangle |
-| `apiGateway` | API Gateway / reverse proxy | Diamond |
-| `loadBalancer` | Load balancer | Trapezoid |
-| `user` | Actor / end user | Circle |
-| `group` | Boundary container (VPC, cluster) | Dashed rectangle |
-| `cloud` | AWS / GCP / Azure service node | Icon box |
+| `service` | Microserviço genérico / aplicação | Retângulo |
+| `database` | Banco SQL / NoSQL | Cilindro |
+| `queue` | Fila de mensagens / barramento de eventos | Retângulo + setas |
+| `cache` | Redis / Memcached | Retângulo |
+| `apiGateway` | API Gateway / proxy reverso | Losango |
+| `loadBalancer` | Balanceador de carga | Trapézio |
+| `user` | Ator / usuário final | Círculo |
+| `group` | Contêiner de limite (VPC, cluster) | Retângulo tracejado |
+| `cloud` | Nó de serviço AWS / GCP / Azure | Caixa com ícone |
 
-Each node supports:
-- Editable label (double-click)
-- Source/target handles on all 4 sides
-- Custom color via properties panel
-- Description field
-- Selected state highlight
+Cada nó suporta:
+- Rótulo editável (duplo clique)
+- Handles de origem/destino em todos os 4 lados
+- Cor personalizada via painel de propriedades
+- Campo de descrição
+- Destaque visual quando selecionado
 
 ---
 
-## Keyboard Shortcuts
+## Atalhos do teclado
 
-| Shortcut | Action |
+| Atalho | Ação |
 |---|---|
-| `Ctrl + Z` | Undo |
-| `Ctrl + Shift + Z` | Redo |
-| `Ctrl + A` | Select all |
-| `Delete` / `Backspace` | Delete selected node or edge |
-| `Escape` | Deselect all |
-| `Ctrl + C` | Copy selected nodes |
-| `Ctrl + V` | Paste nodes |
-| `Ctrl + D` | Duplicate selected nodes |
-| `Ctrl + E` | Export as PNG |
-| `Ctrl + /` | Toggle code panel |
-| `Space + Drag` | Pan canvas |
-| `Scroll` | Zoom in / out |
+| `Ctrl + Z` | Desfazer |
+| `Ctrl + Shift + Z` | Refazer |
+| `Ctrl + A` | Selecionar tudo |
+| `Delete` / `Backspace` | Excluir nó ou aresta selecionada |
+| `Escape` | Desmarcar tudo |
+| `Ctrl + C` | Copiar nós selecionados |
+| `Ctrl + V` | Colar nós |
+| `Ctrl + D` | Duplicar nós selecionados |
+| `Ctrl + E` | Exportar como PNG |
+| `Ctrl + /` | Alternar painel de código |
+| `Space + Drag` | Mover o canvas |
+| `Scroll` | Aproximar / afastar |
 
 ---
 
-## API Routes
+## Rotas da API
 
-### Diagrams
+### Diagramas
 
-| Method | Route | Description |
+| Método | Rota | Descrição |
 |---|---|---|
-| `GET` | `/api/diagrams` | Get all diagrams for user |
-| `POST` | `/api/diagrams` | Create new diagram |
-| `GET` | `/api/diagrams/[id]` | Get single diagram |
-| `PUT` | `/api/diagrams/[id]` | Update diagram |
-| `DELETE` | `/api/diagrams/[id]` | Delete diagram |
-| `POST` | `/api/diagrams/[id]/share` | Generate share link |
+| `GET` | `/api/diagrams` | Obter todos os diagramas do usuário |
+| `POST` | `/api/diagrams` | Criar novo diagrama |
+| `GET` | `/api/diagrams/[id]` | Obter um único diagrama |
+| `PUT` | `/api/diagrams/[id]` | Atualizar diagrama |
+| `DELETE` | `/api/diagrams/[id]` | Excluir diagrama |
+| `POST` | `/api/diagrams/[id]/share` | Gerar link de compartilhamento |
 
-### AI
+### IA
 
-| Method | Route | Description |
+| Método | Rota | Descrição |
 |---|---|---|
-| `POST` | `/api/ai/generate` | Prompt → diagram nodes/edges |
-| `POST` | `/api/ai/explain` | Explain selected node |
+| `POST` | `/api/ai/generate` | Prompt → nós/arestas do diagrama |
+| `POST` | `/api/ai/explain` | Explicar o nó selecionado |
 
-### Request / Response Examples
+### Exemplos de requisição / resposta
 
 ```ts
 // POST /api/ai/generate
 {
-  "prompt": "Design a microservices architecture for an e-commerce app"
+  "prompt": "Crie uma arquitetura de microsserviços para um aplicativo de e-commerce"
 }
 
-// Response
+// Resposta
 {
   "nodes": [...],
   "edges": [...]
@@ -433,7 +433,7 @@ Each node supports:
 
 // POST /api/diagrams
 {
-  "title": "My Architecture",
+  "title": "Minha Arquitetura",
   "nodes": [...],
   "edges": [...]
 }
@@ -441,7 +441,7 @@ Each node supports:
 
 ---
 
-## Database Schema
+## Esquema do banco de dados
 
 ```prisma
 // prisma/schema.prisma
@@ -473,67 +473,67 @@ model Diagram {
 ## Scripts
 
 ```bash
-# Development
-npm run dev           # Start dev server on localhost:3000
+# Desenvolvimento
+npm run dev           # Inicia o servidor em localhost:3000
 
 # Build
-npm run build         # Production build
-npm run start         # Start production server
+npm run build         # Build de produção
+npm run start         # Inicia o servidor de produção
 
-# Database
-npx prisma generate           # Generate Prisma client
-npx prisma migrate dev        # Run migrations in dev
-npx prisma migrate deploy     # Run migrations in production
-npx prisma studio             # Open Prisma Studio GUI
+# Banco de dados
+npx prisma generate           # Gera o cliente Prisma
+npx prisma migrate dev        # Executa migrations em desenvolvimento
+npx prisma migrate deploy     # Executa migrations em produção
+npx prisma studio             # Abre a interface gráfica do Prisma Studio
 
 # Linting
-npm run lint          # ESLint check
-npm run lint:fix      # ESLint auto-fix
+npm run lint          # Verificação do ESLint
+npm run lint:fix      # Correção automática do ESLint
 ```
 
 ---
 
-## Contributing
+## Contribuindo
 
 ```bash
-# Fork and clone
+# Faça um fork e clone
 git clone https://github.com/yashdark01/archflow.git
 
-# Create a feature branch
-git checkout -b feature/your-feature-name
+# Crie uma branch para a funcionalidade
+git checkout -b feature/nome-da-sua-feature
 
-# Make your changes, then commit
+# Faça suas alterações e então faça o commit
 git commit -m "feat: add your feature"
 
-# Push and open a PR
-git push origin feature/your-feature-name
+# Envie e abra um PR
+git push origin feature/nome-da-sua-feature
 ```
 
-### Branch Naming
+### Nomeação de branches
 
-| Prefix | Use |
+| Prefixo | Uso |
 |---|---|
-| `feature/` | New features |
-| `fix/` | Bug fixes |
-| `phase/` | Phase-level work |
-| `docs/` | Documentation only |
-| `refactor/` | Code restructure |
+| `feature/` | Novas funcionalidades |
+| `fix/` | Correções de bugs |
+| `phase/` | Trabalho por fase |
+| `docs/` | Apenas documentação |
+| `refactor/` | Reestruturação de código |
 
 ---
 
 ## Roadmap
 
-- [ ] Phase 1 — Canvas MVP
-- [ ] Phase 2 — Diagram-as-Code (Mermaid)
-- [ ] Phase 3 — Auth + PostgreSQL
-- [ ] Phase 4 — AI Generation (Claude API)
-- [ ] Phase 5 — Share + Templates
-- [ ] Phase 6 — GitHub import (repo → architecture)
-- [ ] Phase 7 — Real-time collaboration (WebSockets)
-- [ ] Phase 8 — VS Code extension
+- [ ] Fase 1 — Canvas MVP
+- [ ] Fase 2 — Diagramas em código (Mermaid)
+- [ ] Fase 3 — Autenticação + PostgreSQL
+- [ ] Fase 4 — Geração com IA (Claude API)
+- [ ] Fase 5 — Compartilhamento + Templates
+- [ ] Fase 6 — Importação do GitHub (repositório → arquitetura)
+- [ ] Fase 7 — Colaboração em tempo real (WebSockets)
+- [ ] Fase 8 — Extensão para VS Code
 
 ---
 
-## License
+## Licença
 
 MIT © [Yash Patidar](https://github.com/yashdark01)
